@@ -1,54 +1,44 @@
-// Funktion zum Umschalten zwischen den Sektionen
-function showSection(sectionId) {
-  const sections = document.querySelectorAll('.content-section');
-  sections.forEach(section => section.style.display = 'none');
-  
-  document.getElementById(sectionId).style.display = 'block';
-}
+// Funktion zum Laden der Götter
+async function loadGods() {
+  const gods = [
+    {
+      name: "Anarok",
+      file: "anarok.md",
+      image: "images/anarok.png"
+    },
+    {
+      name: "Dormar",
+      file: "dormar.md",
+      image: "images/dormar.png"
+    }
+    // Weitere Götter hinzufügen...
+  ];
 
-// Funktion zum Laden der Kategorien
-async function loadCategories() {
-  const categories = ['goetter', 'reiche', 'kreaturen']; // Liste aller Kategorien
-  const categoryList = document.getElementById('category-list');
+  const godListContainer = document.getElementById("god-list");
 
-  categories.forEach(category => {
-    const categoryDiv = document.createElement('div');
-    categoryDiv.className = 'category-card';
-    
-    const categoryTitle = document.createElement('strong');
-    categoryTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-    categoryDiv.appendChild(categoryTitle);
-    
-    // Kategorie-Buttons für jeden Unterpunkt
-    loadCategoryItems(category, categoryDiv);
-    categoryList.appendChild(categoryDiv);
+  gods.forEach(god => {
+    const godDiv = document.createElement("div");
+    godDiv.className = "god-card";
+
+    const img = document.createElement("img");
+    img.src = god.image;
+    img.alt = god.name;
+    godDiv.appendChild(img);
+
+    const godName = document.createElement("strong");
+    godName.textContent = god.name;
+    godDiv.appendChild(godName);
+
+    const godButton = document.createElement("button");
+    godButton.textContent = "Mehr erfahren";
+    godButton.onclick = () => loadWiki(god.file);
+    godDiv.appendChild(godButton);
+
+    godListContainer.appendChild(godDiv);
   });
 }
 
-// Funktion zum Laden der Unterpunkte einer Kategorie (z.B. Götter, Reiche, etc.)
-async function loadCategoryItems(category, categoryDiv) {
-  const res = await fetch(`/categories/${category}/index.json`); // index.json mit den .md-Dateien der Unterpunkte
-  const items = await res.json();
-
-  const buttonContainer = document.createElement('div');
-  items.forEach(item => {
-    const itemButton = document.createElement('button');
-    itemButton.textContent = item.name;
-    itemButton.onclick = () => loadWiki(`${category}/${item.file}`);
-    buttonContainer.appendChild(itemButton);
-  });
-
-  categoryDiv.appendChild(buttonContainer);
-}
-
-// Funktion zum Laden der Inhalte aus einer Markdown-Datei
-async function loadWiki(fileName) {
-  const res = await fetch(`/categories/${fileName}`);
-  const text = await res.text();
-  document.getElementById('wiki-content').innerHTML = marked(text);
-}
-
-// Lade die Kategorien nach dem Laden der Seite
+// Beim Laden der Seite die Götter einfügen
 window.onload = function() {
-  loadCategories();
+  loadGods();
 }
