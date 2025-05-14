@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Divinium – Fantasy Novel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📖 Divinium – Die Chroniken</h1>
+    <nav>
+      <button onclick="showSection('chapters')">Kapitel</button>
+      <button onclick="showSection('wiki')">Divinium Wiki</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="chapters" class="content-section">
+      <h2>Kapitel</h2>
+      <div id="chapter-list"></div>
+      <article id="chapter-content"></article>
+    </section>
+
+    <section id="wiki" class="content-section" style="display:none;">
+      <h2>Divinium Wiki</h2>
+      <div class="wiki-buttons">
+        <button onclick="loadWiki('götter.md')">🕊️ Götter</button>
+        <button onclick="loadWiki('reiche.md')">🌍 Reiche</button>
+      </div>
+      <article id="wiki-content"></article>
+    </section>
+  </main>
+
+  <script src="marked.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

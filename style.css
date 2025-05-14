@@ -1,0 +1,29 @@
+
+body {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f1ee;
+  color: #333;
+}
+header {
+  background: #3e2f2f;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+nav button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+main {
+  padding: 2rem;
+}
+.content-section {
+  display: block;
+}
+.wiki-buttons button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+}
