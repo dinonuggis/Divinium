@@ -1,48 +1,47 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f8f8;
-}
-
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
+/* Allgemeines Styling für die Götter-Karten */
+.god-card {
+  display: inline-block;
+  width: 150px; /* Breite der Karte */
   text-align: center;
-}
-
-header nav button {
-  background-color: #444;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  margin: 0 10px;
-  cursor: pointer;
-}
-
-header nav button:hover {
-  background-color: #555;
-}
-
-.content-section {
-  padding: 20px;
-}
-
-.category-card {
-  margin: 20px 0;
-}
-
-.category-card button {
-  margin: 5px;
+  margin: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
   padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.god-card img {
+  width: 100px; /* Bildbreite */
+  height: 100px; /* Bildhöhe */
+  object-fit: cover; /* Bild wird innerhalb des Rahmens skaliert */
+  border-radius: 50%; /* Runder Rand für das Bild */
+  margin-bottom: 10px;
+}
+
+/* Styling für den Text unter dem Bild */
+.god-card strong {
+  font-size: 16px;
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.god-card small {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Styling für die Schaltflächen */
+.god-card button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-#wiki-content {
-  margin-top: 20px;
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.god-card button:hover {
+  background-color: #555;
 }
